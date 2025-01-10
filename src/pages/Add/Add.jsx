@@ -81,32 +81,34 @@ const Add = ({ url }) => {
             placeholder="Write content here"
             id=""
           ></textarea>
-          <div className="add-category-price">
-            <div className="add-category flex-col">
-              <p>Product category</p>
-              <select onChange={onChangeHandler} name="category" id="">
-                <option value="Salad">Salad</option>
-                <option value="Rolls">Rolls</option>
-                <option value="Deserts">Deserts</option>
-                <option value="Sandwich">Sandwich</option>
-                <option value="Cake">Cake</option>
-                <option value="Pure Veg">Pure Veg</option>
-                <option value="Pasta">Pasta</option>
-                <option value="Noodles">Noodles</option>
-              </select>
-            </div>
-            <div className="add-price flex-col">
-              <p>Product price</p>
-              <input
-                onChange={onChangeHandler}
-                value={data.price}
-                type="Number"
-                name="price"
-                placeholder="$20"
-              />
-            </div>
+        </div>
+
+        <div className="add-category-price">
+          <div className="add-category flex-col">
+            <p>Product category</p>
+            <select onChange={onChangeHandler} name="category" id="">
+              <option value="Salad">Salad</option>
+              <option value="Rolls">Rolls</option>
+              <option value="Deserts">Deserts</option>
+              <option value="Sandwich">Sandwich</option>
+              <option value="Cake">Cake</option>
+              <option value="Pure Veg">Pure Veg</option>
+              <option value="Pasta">Pasta</option>
+              <option value="Noodles">Noodles</option>
+            </select>
+          </div>
+          <div className="add-price flex-col">
+            <p>Product price</p>
+            <input
+              onChange={onChangeHandler}
+              value={data.price}
+              type="Number"
+              name="price"
+              placeholder="$20"
+            />
           </div>
         </div>
+
         <button type="submit" className="add-btn">
           Add
         </button>
