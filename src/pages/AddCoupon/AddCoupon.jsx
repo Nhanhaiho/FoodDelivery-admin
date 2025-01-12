@@ -100,9 +100,8 @@ function AddCoupon({ url }) {
           <input
             onChange={onChangeHandler}
             value={data.expiredDate}
-            type="text"
+            type="date"
             name="expiredDate"
-            placeholder="Type here"
           />
         </div>
 
