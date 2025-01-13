@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 function AddCoupon({ url }) {
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
     couponCode: "",
     couponName: "",
@@ -20,6 +21,7 @@ function AddCoupon({ url }) {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const formData = new FormData();
 
     formData.append("couponCode", data.couponCode);
@@ -46,9 +48,15 @@ function AddCoupon({ url }) {
     } else {
       toast.error(response.data.message);
     }
+    setLoading(false);
   };
 
-  return (
+  return loading ? (
+    <div className="grid-container">
+      {" "}
+      <div className="loading-spinner"></div>{" "}
+    </div>
+  ) : (
     <div className="add">
       <form action="" className="flex-col" onSubmit={onSubmitHandler}>
         <div className="add-coupon-code flex-col">
