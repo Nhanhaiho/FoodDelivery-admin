@@ -1,0 +1,69 @@
+/* Modal container */
+.edit-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 600px;
+  background-color: #fff;
+  border: 1px solid #cacaca;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Modal overlay */
+.edit-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Close button */
+.edit-modal .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Form styling inside the modal */
+.edit-modal form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-modal form label {
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.edit-modal form input,
+.edit-modal form button,
+.edit-modal form select {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #cacaca;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.edit-modal form button {
+  background-color: tomato;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-modal form button:hover {
+  background-color: rgb(252, 134, 113);
+}
