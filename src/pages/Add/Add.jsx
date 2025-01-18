@@ -5,12 +5,13 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 const Add = ({ url }) => {
+  const [loading, setLoading] = useState(false);
   const [image, setImage] = useState(false);
   const [data, setData] = useState({
     name: "",
     description: "",
     price: "",
-    category: "Salad",
+    category: "",
   });
 
   const onChangeHandler = (e) => {
@@ -21,6 +22,7 @@ const Add = ({ url }) => {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const formData = new FormData();
     formData.append("name", data.name);
     formData.append("price", data.price);
@@ -33,16 +35,22 @@ const Add = ({ url }) => {
         name: "",
         description: "",
         price: "",
-        category: "Salad",
+        category: "",
       });
       setImage(false);
       toast.success(response.data.message);
     } else {
       toast.error(response.data.message);
     }
+    setLoading(false);
   };
 
-  return (
+  return loading ? (
+    <div className="grid-container">
+      {" "}
+      <div className="loading-spinner"></div>{" "}
+    </div>
+  ) : (
     <div className="add">
       <form action="" className="flex-col" onSubmit={onSubmitHandler}>
         <div className="add-img-upload flex-col">
@@ -86,7 +94,16 @@ const Add = ({ url }) => {
         <div className="add-category-price">
           <div className="add-category flex-col">
             <p>Product category</p>
-            <select onChange={onChangeHandler} name="category" id="">
+            <select
+              onChange={onChangeHandler}
+              name="category"
+              id=""
+              value={data.category}
+            >
+              <option value="" selected disabled hidden>
+                {" "}
+                Choose
+              </option>
               <option value="Salad">Salad</option>
               <option value="Rolls">Rolls</option>
               <option value="Deserts">Deserts</option>
